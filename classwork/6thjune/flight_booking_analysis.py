@@ -10,7 +10,7 @@ bookings = (
 )
 
 # 1. Display all passengers whose booking status is Confirmed
-print("Confirmed Passengers:")
+print("Fata of the Confirmed Passengers:")
 for booking in bookings:
     if booking[2] == "Confirmed":
         print(booking[0], booking[1])
