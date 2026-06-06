@@ -15,35 +15,41 @@
 #• Stop checking if 3 failures are found. 
 
 
-passengers = [12, 18, 25, 30, 28, 15, 8]
+products = [
+    (101, "Pass"),
+    (102, "Fail"),
+    (103, "Pass"),
+    (104, "Fail"),
+    (105, "Pass")
+]
 
-highest = passengers[0]
-position = 1
-total = 0
-exceeded = False
+passed = 0
+failed = 0
 
-for i in range(len(passengers)):
-    total += passengers[i]
+print("Failed Product IDs:")
 
-    if passengers[i] > highest:
-        highest = passengers[i]
-        position = i + 1
+for pid, status in products:
+    if status == "Fail":
+        print(pid)
 
-    if passengers[i] > 25:
-        exceeded = True
+for pid, status in products:
+    if status == "Pass":
+        passed += 1
+    else:
+        failed += 1
 
-print("Busiest Stop:", position)
+percentage = (passed / len(products)) * 100
 
-print("Stops with less than 10 passengers:")
-for i in range(len(passengers)):
-    if passengers[i] < 10:
-        print(i + 1)
+print("Passed:", passed)
+print("Failed:", failed)
+print("Pass Percentage:", percentage)
 
-average = total / len(passengers)
+fail_count = 0
 
-print("Average Passengers:", average)
+for pid, status in products:
+    if status == "Fail":
+        fail_count += 1
 
-if exceeded:
-    print("A stop exceeded 25 passengers")
-else:
-    print("No stop exceeded 25 passengers")
+    if fail_count == 3:
+        print("3 Failures Found")
+        break
