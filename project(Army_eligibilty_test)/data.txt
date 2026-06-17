@@ -1,0 +1,1 @@
+{'name': 'Vanshika Singh', 'age': 21, 'gender': 'Female', 'qualification': '12 th pass', 'marital_status': 'Unmarried'}
